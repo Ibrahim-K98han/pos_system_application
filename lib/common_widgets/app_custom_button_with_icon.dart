@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pos_system/constants/app_color.dart';
 import 'package:pos_system/constants/text_font_style.dart';
 
@@ -29,7 +30,7 @@ class AppCustomButtonWithIcon extends StatelessWidget {
       onPressed: onPressed,
       child: Container(
         width: double.infinity,
-        padding: const EdgeInsets.only(top: 12.0, bottom: 12.0),
+        padding:  EdgeInsets.only(top: 12.h, bottom: 12.h),
         decoration: buttonDecoration,
         child: Center(
           child: Row(
@@ -37,8 +38,8 @@ class AppCustomButtonWithIcon extends StatelessWidget {
             children: [
               icon != null
                   ? Padding(
-                    padding: const EdgeInsets.only(left: 30),
-                    child: Icon(icon, color: AppColor.cFFFFFF, size: 28),
+                    padding:  EdgeInsets.only(left: 30.w),
+                    child: Icon(icon, color: AppColor.cFFFFFF, size: 28.sp),
                   )
                   : SizedBox.shrink(),
               icon != null ? SizedBox(width: 35) : SizedBox.shrink(),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pos_system/constants/app_color.dart';
 import 'package:pos_system/constants/text_font_style.dart';
 
@@ -43,7 +44,7 @@ class AppCustomButton extends StatelessWidget {
         width: width ?? double.maxFinite,
         decoration: BoxDecoration(
           color: isBorder ? AppColor.c1A72DD : AppColor.cFFFFFF,
-          borderRadius: BorderRadius.circular(borderRadius ?? 50),
+          borderRadius: BorderRadius.circular(borderRadius ?? 50.r),
           border: Border.all(
             color: isBorder ? borderColor ?? Colors.white : Colors.transparent,
           ),

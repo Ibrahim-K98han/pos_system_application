@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:pos_system/constants/app_color.dart';
 import 'package:pos_system/constants/text_font_style.dart';
@@ -26,7 +27,7 @@ class _CarusalSliderWidgetState extends State<CarusalSliderWidget> {
         children: [
           CarouselSlider(
             options: CarouselOptions(
-              height: 280,
+              height: 280.h,
               autoPlay: true,
               autoPlayInterval: Duration(seconds: 3),
               viewportFraction: 1,
@@ -47,25 +48,25 @@ class _CarusalSliderWidgetState extends State<CarusalSliderWidget> {
           ),
 
           Padding(
-            padding: EdgeInsets.only(top: 320),
+            padding: EdgeInsets.only(top: 320.h),
             child: Column(
               children: [
                 Text(
                   'Easy Management for your Store.',
                   style: TextFontStyle.headline16w500c2A3256StyleRubik,
                 ),
-                SizedBox(height: 16),
+                SizedBox(height: 16.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(imageUrls.length, (index) {
                     return Container(
-                      width: 18,
-                      height: 6,
-                      margin: EdgeInsets.symmetric(horizontal: 4.0),
+                      width: 18.w,
+                      height: 6.h,
+                      margin: EdgeInsets.symmetric(horizontal: 4.w),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.horizontal(
-                          left: Radius.circular(4),
-                          right: Radius.circular(4),
+                          left: Radius.circular(4.r),
+                          right: Radius.circular(4.r),
                         ),
                         color:
                             currentIndex == index

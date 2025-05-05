@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:pos_system/constants/app_color.dart';
 import 'package:pos_system/constants/text_font_style.dart';
@@ -33,22 +34,22 @@ class _OtpSocialBtnState extends State<OtpSocialBtn> {
             });
           },
           child: Padding(
-            padding: const EdgeInsets.only(top: 12),
+            padding:  EdgeInsets.only(top: 12.h),
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-              height: 45,
-              width: 140,
+              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
+              height: 45.h,
+              width: 140.w,
               decoration: BoxDecoration(
                 color: isSelected ? AppColor.c1A72DD : AppColor.cF2F2F2,
-                borderRadius: BorderRadius.circular(14),
+                borderRadius: BorderRadius.circular(14.r),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   SvgPicture.asset(
                     imageUrls[index],
-                    width: 18,
-                    height: 18,
+                    width: 18.w,
+                    height: 18.h,
                     color: isSelected ? AppColor.cFFFFFF : AppColor.c2A3256,
                   ),
                   Text(
