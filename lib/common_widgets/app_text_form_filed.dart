@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pos_system/constants/app_color.dart';
@@ -10,15 +12,18 @@ class AppTextFormFiled extends StatelessWidget {
     required this.validator,
     this.suffixIcon,
     this.obscureText = false,
+    required this.controller,
   });
   final String hintText;
   final Widget? suffixIcon;
   bool obscureText;
   String? Function(String?) validator;
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       obscureText: obscureText,
       decoration: InputDecoration(
         suffixIcon: suffixIcon,

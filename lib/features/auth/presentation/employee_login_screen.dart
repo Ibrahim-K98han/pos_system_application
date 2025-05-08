@@ -55,6 +55,7 @@ class _EmployeeLoginScreenState extends State<EmployeeLoginScreen> {
                       ),
                       SizedBox(height: 8.h),
                       AppTextFormFiled(
+                        controller: _cashierCodeController,
                         hintText: 'ABC234564',
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -71,6 +72,7 @@ class _EmployeeLoginScreenState extends State<EmployeeLoginScreen> {
                       ),
                       SizedBox(height: 8.h),
                       AppTextFormFiled(
+                        controller: _passwordController,
                         obscureText: _obscureText,
                         suffixIcon: IconButton(
                           onPressed: () {

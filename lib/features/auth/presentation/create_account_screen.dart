@@ -54,6 +54,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                   ),
                   SizedBox(height: 8.h),
                   AppTextFormFiled(
+                    controller: _emailController,
                     hintText: 'Email or Phone Number',
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -70,6 +71,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                   ),
                   SizedBox(height: 8.h),
                   AppTextFormFiled(
+                    controller: _phoneController,
                     hintText: '085551215656',
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -86,6 +88,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                   ),
                   SizedBox(height: 8.h),
                   AppTextFormFiled(
+                    controller: _passwordController,
                     hintText: '***********',
                     obscureText: _obscureText,
                     suffixIcon: IconButton(

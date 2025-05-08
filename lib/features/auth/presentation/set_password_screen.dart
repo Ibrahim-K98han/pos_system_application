@@ -5,26 +5,26 @@ import 'package:pos_system/common_widgets/app_text_form_filed.dart';
 import 'package:pos_system/common_widgets/global_heading.dart';
 import 'package:pos_system/constants/app_color.dart';
 import 'package:pos_system/constants/text_font_style.dart';
-import 'package:pos_system/features/auth/presentation/forget_password_screen.dart';
-import 'package:pos_system/features/auth/presentation/widgets/otp_social_btn.dart';
+import 'package:pos_system/features/auth/presentation/login_the_owner.dart';
 
-class LoginTheOwner extends StatefulWidget {
-  const LoginTheOwner({super.key});
+class SetPasswordScreen extends StatefulWidget {
+  const SetPasswordScreen({super.key});
 
   @override
-  State<LoginTheOwner> createState() => _LoginTheOwnerState();
+  State<SetPasswordScreen> createState() => _SetPasswordScreenState();
 }
 
-class _LoginTheOwnerState extends State<LoginTheOwner> {
-  final TextEditingController _cashierCodeController = TextEditingController();
+class _SetPasswordScreenState extends State<SetPasswordScreen> {
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  bool _obscureText = true;
-
+  bool _obscureTextPass = true;
+  bool _obscureTextConfPass = true;
   @override
   void dispose() {
-    _cashierCodeController.dispose();
     _passwordController.dispose();
+    _confirmPasswordController.dispose();
     super.dispose();
   }
 
@@ -39,7 +39,6 @@ class _LoginTheOwnerState extends State<LoginTheOwner> {
             child: Form(
               key: _formKey,
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   GlobalHeadline(
                     title: 'He is a connector',
@@ -47,27 +46,10 @@ class _LoginTheOwnerState extends State<LoginTheOwner> {
                       Navigator.pop(context);
                     },
                   ),
-                  SizedBox(height: 24.h),
+                  SizedBox(height: 50.h),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Email or Phone Number',
-                        style: TextFontStyle.headline16w500c2A3256StyleRubik
-                            .copyWith(fontWeight: FontWeight.w400),
-                      ),
-                      SizedBox(height: 8.h),
-                      AppTextFormFiled(
-                        controller: _cashierCodeController,
-                        hintText: 'Email or Phone Number',
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Email is required';
-                          }
-                          return null;
-                        },
-                      ),
-                      SizedBox(height: 24.h),
                       Text(
                         'Password',
                         style: TextFontStyle.headline16w500c2A3256StyleRubik
@@ -76,20 +58,20 @@ class _LoginTheOwnerState extends State<LoginTheOwner> {
                       SizedBox(height: 8.h),
                       AppTextFormFiled(
                         controller: _passwordController,
-                        obscureText: _obscureText,
+                        obscureText: _obscureTextPass,
                         suffixIcon: IconButton(
                           onPressed: () {
                             setState(() {
-                              _obscureText = !_obscureText;
+                              _obscureTextPass = !_obscureTextPass;
                             });
                           },
                           icon: Icon(
-                            _obscureText
+                            _obscureTextPass
                                 ? Icons.visibility_off
                                 : Icons.visibility,
                           ),
                         ),
-                        hintText: '8 characters minimum',
+                        hintText: 'Password',
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Password is required';
@@ -97,54 +79,55 @@ class _LoginTheOwnerState extends State<LoginTheOwner> {
                           return null;
                         },
                       ),
-                      SizedBox(height: 32.h),
+                      SizedBox(height: 12.h),
                       Text(
-                        'send an OTP',
+                        'Confirm Password',
                         style: TextFontStyle.headline16w500c2A3256StyleRubik
                             .copyWith(fontWeight: FontWeight.w400),
                       ),
-                      SizedBox(height: 12.h),
+                      SizedBox(height: 8.h),
+                      AppTextFormFiled(
+                        controller: _confirmPasswordController,
+                        obscureText: _obscureTextConfPass,
+                        suffixIcon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _obscureTextConfPass = !_obscureTextConfPass;
+                            });
+                          },
+                          icon: Icon(
+                            _obscureTextConfPass
+                                ? Icons.visibility_off
+                                : Icons.visibility,
+                          ),
+                        ),
+                        hintText: 'Confirm Password',
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Password is required';
+                          }
+                          return null;
+                        },
+                      ),
+                      SizedBox(height: 40.h),
 
-                      ///=======================OTP all Social Button========================///
-                      OtpSocialBtn(),
-                      SizedBox(height: 60.h),
                       AppCustomButton(
                         onTap: () {
                           if (_formKey.currentState!.validate()) {
                             print('Form Valid');
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LoginTheOwner(),
+                              ),
+                            );
                           }
                         },
-                        btnName: 'Log in',
+                        btnName: 'Submit',
                         borderRadius: 15.r,
                         isBorder: true,
                         borderColor: AppColor.c1A72DD,
                         padding: EdgeInsets.symmetric(vertical: 16.h),
-                      ),
-                      SizedBox(height: 20),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return ForgetPasswordScreen();
-                              },
-                            ),
-                          );
-                        },
-                        child: Center(
-                          child: Text(
-                            'Forgot your password?',
-
-                            style: TextFontStyle.headline15w400c2A3256StyleRubik
-                                .copyWith(
-                                  color: AppColor.c1A72DD,
-                                  fontWeight: FontWeight.bold,
-                                  decoration: TextDecoration.underline,
-                                  decorationColor: AppColor.c1A72DD,
-                                ),
-                          ),
-                        ),
                       ),
                     ],
                   ),
