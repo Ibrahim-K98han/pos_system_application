@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/route_manager.dart';
 import 'package:pos_system/common_widgets/app_custom_button.dart';
 import 'package:pos_system/common_widgets/app_text_form_filed.dart';
 import 'package:pos_system/common_widgets/global_heading.dart';
@@ -7,6 +8,7 @@ import 'package:pos_system/constants/app_color.dart';
 import 'package:pos_system/constants/text_font_style.dart';
 import 'package:pos_system/features/auth/presentation/forget_password_screen.dart';
 import 'package:pos_system/features/auth/presentation/widgets/otp_social_btn.dart';
+import 'package:pos_system/features/home/presentation/home_screen.dart';
 
 class LoginTheOwner extends StatefulWidget {
   const LoginTheOwner({super.key});
@@ -111,7 +113,7 @@ class _LoginTheOwnerState extends State<LoginTheOwner> {
                       AppCustomButton(
                         onTap: () {
                           if (_formKey.currentState!.validate()) {
-                            print('Form Valid');
+                            Get.to(HomeScreen());
                           }
                         },
                         btnName: 'Log in',
