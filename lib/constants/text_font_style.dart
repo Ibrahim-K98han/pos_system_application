@@ -35,4 +35,9 @@ class TextFontStyle {
     fontSize: 12.sp,
     fontWeight: FontWeight.w400,
   );
+  static final headline14w50c2A3256StyleRubik = GoogleFonts.rubik(
+    color: AppColor.c2A3256,
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w500,
+  );
 }

@@ -8,7 +8,7 @@ import 'package:pos_system/constants/app_color.dart';
 import 'package:pos_system/constants/text_font_style.dart';
 import 'package:pos_system/features/auth/presentation/forget_password_screen.dart';
 import 'package:pos_system/features/auth/presentation/widgets/otp_social_btn.dart';
-import 'package:pos_system/features/home/presentation/home_screen.dart';
+import 'package:pos_system/features/home/presentation/bottom_nav_bar_view.dart';
 
 class LoginTheOwner extends StatefulWidget {
   const LoginTheOwner({super.key});
@@ -113,7 +113,7 @@ class _LoginTheOwnerState extends State<LoginTheOwner> {
                       AppCustomButton(
                         onTap: () {
                           if (_formKey.currentState!.validate()) {
-                            Get.to(HomeScreen());
+                            Get.to(BottomNavBarView());
                           }
                         },
                         btnName: 'Log in',
